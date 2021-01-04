@@ -1,10 +1,28 @@
-var welcome = document.querySelector('#welcome')
-var userName = document.querySelector('#name')
+var input = document.querySelector("#input");
+var btn = document.querySelector("#check");
+var output = document.querySelector("#output");
 
-function heading(input){
-    var inputName = userName.vlaue
-    var message = "Welcome {inputName}! Let's see what your big days got ! "
-    welcome.innerHTML = message; 
+
+
+function clickHandler() {
+
+    var useryear = input.value;
+    var answer;
+    const Leap ="Greetings!  you were born in a leap year."
+    const notLeap ="Whoops! You were not born in a leap year."
+
+
+
+ if (useryear % 400 == 0) {
+        answer = Leap
+    }else if(useryear % 100 == 0){
+        answer = notLeap
+    } else if(useryear % 4 == 0){
+        answer = Leap
+    } else {
+        answer = notLeap
+    }
+    output.innerText = answer;
 }
 
-userName.addEventListener("name", heading)
+btn.addEventListener("click",clickHandler);
